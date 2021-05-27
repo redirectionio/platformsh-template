@@ -1,0 +1,31 @@
+# The name of this app. Must be unique within a project.
+name: "redirectionio-agent"
+
+type: golang:1.15
+
+build:
+    flavor: none
+
+disk: 128
+
+relationships:
+    app: "example-app:http"
+
+hooks:
+    build: |
+        set -ex
+        curl -s -J -L "https://packages.redirection.io/dist/stable/2/any/redirectionio-agent-latest_any_amd64.tar.gz" | tar -C /app/ -xzpf -
+
+web:
+    upstream:
+        socket_family: tcp
+        protocol: http
+    commands:
+        start: |
+            set -ex
+            mkdir -p /tmp/var/lib
+            /app/redirection-agent/redirectionio-agent -config-file ./agent.yaml
+    locations:
+        /:
+            allow: false
+            passthru: true
