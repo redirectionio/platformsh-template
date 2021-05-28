@@ -3,14 +3,184 @@
     <head>
         <meta charset="utf-8">
         <title>Welcome in the redirection.io platform.sh integration example</title>
+        <style type="text/css">
+            html {
+                background-color: #f9f9f9;
+                padding: 3em;
+            }
+            body {
+                font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+                font-size: 16px;
+                line-height: 1.5;
+                text-align: center;
+                word-wrap: break-word;
+            }
+            img {
+                max-width: 100%;
+                width: 20em;
+            }
+            a {
+                color: #0398db;
+                text-decoration: none;
+            }
+            code {
+                padding: .2em .4em;
+                margin: 0;
+                font-size: 85%;
+                background-color: rgba(27,31,35,.05);
+                border-radius: 3px;
+            }
+            h1, h2, h3, h4, h5, h6 {
+                margin-top: 24px;
+                margin-bottom: 16px;
+                font-weight: 600;
+                line-height: 1.25;
+            }
+            h1 {
+                font-size: 2em;
+                margin-top: 0;
+            }
+            h1, h2 {
+                padding-bottom: .3em;
+                border-bottom: 1px solid #e9ecef;
+            }
+            li+li {
+                margin-top: .25em;
+            }
+            p {
+                margin: 1em 0;
+            }
+            ul {
+                padding-left: 2em;
+            }
+            .content {
+                background-color: #fff;
+                border: 1px #e1e4e8 solid;
+                border-radius: 1em;
+                padding: 3em;
+                margin: 3em auto 0 auto;
+                max-width: 1000px;
+                text-align: left;
+            }
+            #logo {
+                max-width: 6em;
+            }
+        </style>
     </head>
     <body>
-        <h1>Welcome in the redirection.io platform.sh integration example</h1>
-        <p>
-            This is a platform.sh deployment template for the <a href="https://redirection.io">redirection.io</a> agent, which allows to create redirect rules on your website with ease.
-        </p>
-        <p>
-            Please <a href="https://redirection.io/documentation/user-documentation/create-a-rule">setup some redirection rules in the manager</a> - note that you may have to wait a bit before the rules are applied - it can take up to 10 minutes on a free plan.
-        </p>
+        <img id="logo" src="https://media.redirection.io/logos/vertical-logo-blue-white-text-black.svg" alt="redirection.io blue and white logo and black brand name">
+        <div class="content">
+            <h1 id="welcome-in-the-redirection-io-example-platform-sh-integration-example">Welcome in the redirection.io example platform.sh integration example</h1>
+
+            <p>
+                This website has been installed using a <a href="https://platform.sh/">platform.sh</a> deployment template for the <a href="https://redirection.io/">redirection.io</a> agent.
+            </p>
+
+            <p>
+                redirection.io is a complete suite for optimizing your website traffic, user experience and SEO efficiency. It offers many useful features for professional websites:
+            </p>
+
+            <ul>
+                <li>
+                    <a href="https://redirection.io/features/logs">log and analyze all the HTTP traffic</a>;
+                </li>
+                <li>
+                    <a href="https://redirection.io/features/redirections">Setup HTTP redirections</a>;
+                </li>
+                <li>
+                    create advanced SEO rules (meta tags override, schema.org structured data injection, custom HTML code modification, HTTP response headers management, etc.);
+                </li>
+                <li>
+                    etc.
+                </li>
+            </ul>
+
+            <h2 id="final-setup-steps">Final setup steps</h2>
+
+            <p>
+                Now this example project is running, here are the next steps:
+            </p>
+
+            <ul>
+                <li>
+                    <a href="https://redirection.io/manager">create an account and a project on redirection.io</a>
+                </li>
+                <li>
+                    on the &quot;instances&quot; screen of the redirection.io management interface, click on the &quot;Setup on your infrastructure&quot; button and copy the &quot;Project key&quot;;
+                </li>
+                <li>
+                    configure this key in your newly created platform.sh project by creating a <code>env:REDIRECTIONIO_KEY</code> project variable:<br />
+                    <a href="https://media.redirection.io/documentation/knowledge-base/platform-sh/project-key-variable.png">
+                        <img src="https://media.redirection.io/documentation/knowledge-base/platform-sh/project-key-variable.png" alt="Configure the project key as a platform.sh env variable">
+                    </a>
+                </li>
+            </ul>
+
+            <p>
+                Once the project is re-deployed, send a few HTTP requests to your website, and you should see logs in ther <a href="https://redirection.io/manager/">redirection.io manager</a>.
+            </p>
+
+            <h2 id="create-your-first-redirection-rules">Create your first redirection rules</h2>
+
+            <p>Our documentation provides many explanations on how to begin your journey with redirection.io. We advise you to read:</p>
+
+            <ul>
+                <li>
+                    <a href="https://redirection.io/documentation/user-documentation/create-a-rule">Create a rule</a>: - This page explains how to create redirect rules using redirection.io, and how to configure general settings of your redirection plan: URLs case sensitivity, marketing query parameters support and forwarding, publication history, etc.
+                </li>
+                <li>
+                    <a href="https://redirection.io/documentation/knowledge-base/create-your-first-redirections">Create your first redirections</a>: Learn how to create your first redirections with redirection.io, and how to build an efficient redirects plan.
+                </li>
+            </ul>
+
+            <p>
+                If you just want to test, you can <a href="https://redirection.io/documentation/user-documentation/how-to-bulk-import-or-export-redirection-rules">import redirect rules</a> by using this file: <a href="./redirection-io-example-rules.csv">redirection-io-example-rules.csv</a>.
+            </p>
+
+            <p>
+                Once the import is completed and the <code>redirectionio-agent</code> has processed the update, you can test these rules by clicking the following links:
+            </p>
+
+            <ul>
+                <li>
+                    <a href="/example/301-rio.html">Example 301 redirection</a>: this link should produce a <code>301</code> redirect to <code>/</code>
+                </li>
+                <li>
+                    <a href="/example/302-rio.html">Example 302 redirection</a>: this link should produce a <code>302</code> redirect to <code>/</code>
+                </li>
+                <li>
+                    <a href="/example/404-rio.html">Example 404 redirection</a>: this link should produce a <code>404</code> response. This is useful in case you want to send a <code>404</code> back to  the user for this request without hitting your application backend
+                </li>
+                <li>
+                    <a href="/example/410-rio.html">Example 410 redirection</a>: this link should produce a <code>410</code> response. This is useful in case you want to send a <code>410</code> back to the user for this request without hitting your application backend.
+                </li>
+            </ul>
+
+            <p>
+                <a href="https://redirection.io/documentation/knowledge-base/what-is-a-url-redirection">Learn more about redirection status codes</a>.
+            </p>
+
+            <h2 id="customize-your-application">Customize your application</h2>
+
+            <p>
+                This example comes with a very simple application (this webpage...). Of course, you will want to configure your own website instead of this page.
+            </p>
+
+            <p>
+                Here are some tips:
+            </p>
+
+            <ul>
+                <li>
+                    configure the service dependencies in <code>.platform/services.yaml</code>
+                </li>
+                <li>
+                    configure your application type and properties in <code>.platform.app.yaml</code>
+                </li>
+                <li>
+                    put you own code in the <code>application</code> directory (or in any place of your choice depending on the <code>.platform.app.yaml</code> content)
+                </li>
+            </ul>
+        </div>
     </body>
 </html>

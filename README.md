@@ -6,7 +6,7 @@
 </a>
 </p>
 
-This template provides a basic redirection.io skeleton.
+This template provides a basic redirection.io skeleton. In order to use it, please click the button above.
 
 ## Features
 
@@ -18,7 +18,7 @@ This template provides a basic redirection.io skeleton.
 
 ## Post-install
 
-Once the project is installed, please configure the `REDIRECTIONIO_KEY` project env var:
+Once the project is installed, please configure the `env:REDIRECTIONIO_KEY` project env var:
 
 ```bash
 $ platform variable:create --name env:REDIRECTIONIO_KEY --sensitive true --value "set your key here"
