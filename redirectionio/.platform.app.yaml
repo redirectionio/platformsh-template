@@ -23,9 +23,18 @@ web:
     commands:
         start: |
             set -ex
-            mkdir -p /tmp/var/lib
             /app/redirection-agent/redirectionio-agent -config-file ./agent.yaml
     locations:
         /:
             allow: false
             passthru: true
+
+mounts:
+    # rules will be saved locally in this folder
+    'rules':
+        source: local
+        source_path: rules
+    # redirection.io log folder
+    'log':
+        source: local
+        source_path: log
