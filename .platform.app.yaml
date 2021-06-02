@@ -7,9 +7,6 @@ name: "example-app"
 # The type of the application to build.
 type: golang:1.15
 
-build:
-    flavor: none
-
 # The size of the persistent disk of the application (in MB).
 disk: 128
 

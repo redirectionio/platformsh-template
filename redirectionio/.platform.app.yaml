@@ -3,9 +3,6 @@ name: "redirectionio-agent"
 
 type: golang:1.15
 
-build:
-    flavor: none
-
 disk: 128
 
 relationships:
